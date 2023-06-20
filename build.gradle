@@ -33,8 +33,12 @@ dependencies {
 
 	// p6spy
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
+
 	// mariadb
 	implementation 'org.mariadb.jdbc:mariadb-java-client'
+
+	// envers
+	implementation 'org.springframework.data:spring-data-envers:3.1.0'
 
 	compileOnly 'org.projectlombok:lombok'
 

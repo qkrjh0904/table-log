@@ -1,6 +1,7 @@
 package com.complete.tablelog.domain.member.service;
 
 import com.complete.tablelog.db.entity.Member;
+import com.complete.tablelog.domain.book.repository.BookRepository;
 import com.complete.tablelog.domain.member.model.dto.FindAllMemberDto;
 import com.complete.tablelog.domain.member.model.rq.SaveMemberRq;
 import com.complete.tablelog.domain.member.model.rs.FindAllMemberRs;
@@ -18,10 +19,14 @@ import java.util.stream.Collectors;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final BookRepository bookRepository;
 
     public void saveMember(SaveMemberRq rq) {
         Member member = Member.create(rq.name(), rq.email());
         memberRepository.save(member);
+
+//        Book book = Book.create("책");
+//        bookRepository.save(book);
     }
 
 
@@ -37,5 +42,9 @@ public class MemberService {
                 .map(FindAllMemberDto::create)
                 .collect(Collectors.toList());
         return FindAllMemberRs.create(list);
+    }
+
+    public void test() {
+//        throw new IllegalArgumentException();
     }
 }
